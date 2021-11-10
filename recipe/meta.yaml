@@ -10,7 +10,9 @@ source:
 
 build:
   number: 4
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script:
+    - "{{ PYTHON }} -m  cython imagecodecs/_imagecodecs_lite.pyx"
+    - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
@@ -20,6 +22,7 @@ requirements:
     - pip
     - numpy
     - msinttypes  # [win]
+    - cython
   run:
     - python
     - {{ pin_compatible('numpy') }}
