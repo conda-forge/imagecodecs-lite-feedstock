@@ -9,7 +9,7 @@ source:
   sha256: 95d18aa13ceb1b18a6109433b42d054e13b9a295cba96c08ab719f864f589d68
 
 build:
-  number: 7
+  number: 8
   script:
     - "{{ PYTHON }} -m  cython imagecodecs/_imagecodecs_lite.pyx"
     - "{{ PYTHON }} -m pip install . -vv"
@@ -21,6 +21,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
@@ -29,7 +30,6 @@ requirements:
     - cython
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
