@@ -9,7 +9,7 @@ source:
   sha256: 95d18aa13ceb1b18a6109433b42d054e13b9a295cba96c08ab719f864f589d68
 
 build:
-  number: 8
+  number: 9
   script:
     - "{{ PYTHON }} -m  cython imagecodecs/_imagecodecs_lite.pyx"
     - "{{ PYTHON }} -m pip install . -vv"
